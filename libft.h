@@ -12,14 +12,9 @@
 
 #ifndef LIBFT_H  // headers guard
 # define LIBFT_H
-# include <stdio.h>
-# include <string.h>
-# include <stddef.h>
+
 # include <unistd.h>
 # include <stdlib.h>
-
-# define TRUE 0 //macros
-# define FALSE 1
 
 int		ft_isalpha(int a);
 int		ft_isdigit(int a);

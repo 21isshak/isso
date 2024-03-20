@@ -32,24 +32,24 @@ ft_putendl_fd.c \
 ft_putnbr_fd.c \
 
 OBJS = $(SRCS:.c=.o)
+CC = clang
+RM = rm -f
+CFLAGS = -Wall -Wextra -Werror -I.
 NAME = libft.a
-CC = clang -Wall -Wextra -Werror
 
-%.o: %.c libft.h
-	$(CC) -I -c $< -o ${<:.c=.o}
 
 all: $(NAME)
 
-$(NAME): $(OBJS) libft.h
+$(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 clean:
-	rm -f $(OBJS)
+	$(RM) $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
-re: fclean all
+re: fclean $(NAME)
 
 .PHONY: all clean fclean re
 
