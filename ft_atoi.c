@@ -12,6 +12,11 @@
 
 #include "libft.h"
 
+static int	ft_isspace(char a)
+{
+	return ((a > 8 && a < 14) || a == 32);
+}
+
 int	ft_atoi(const char *str)
 {
 	int	a;
@@ -21,9 +26,9 @@ int	ft_atoi(const char *str)
 	mlt = 1;
 	nmr = 0;
 	a = 0;
-	while ((str[a] > 8 && str[a] < 14) || str[a] == 32)
+	while (ft_isspace(str[a]))
 		a++;
-	while (str[a] != '\0' && (str[a] == 43 || str[a] == 45))
+	if (str[a] == 43 || str[a] == 45)
 	{
 		if (str[a] == 45)
 			mlt *= -1;

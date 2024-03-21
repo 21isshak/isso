@@ -15,7 +15,7 @@
 void	ft_bzero(void *s, size_t n)
 {
 	size_t	a;
-	char	*str;
+	unsigned char	*str;
 
 	str = s;
 	a = 0;
