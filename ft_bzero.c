@@ -25,3 +25,17 @@ void	ft_bzero(void *s, size_t n)
 		a++;
 	}
 }
+/*
+int main()
+{
+    char str[20] = "Hello, World!";
+    char s[20] = "Hello, World!";
+    printf("%s\n", s);
+    ft_bzero(s, sizeof(s));
+    printf("=>%s\n", s);
+    printf("%s\n", str);
+    bzero(str, sizeof(str));  // sets all bytes in str to 0
+    printf("=>%s\n", str);   // output; empty string
+    return 0;
+}
+*/

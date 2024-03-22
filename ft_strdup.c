@@ -35,30 +35,27 @@ char	*ft_strdup(const char *src)
 	dest[i] = '\0';
 	return (dest);
 }
-/*int main(int argc, char **argv)
+/*
+int main()
 {
-	if (argc != 3)
-	{
-		printf("NOPPE");
-		return (1);
-	}
 	char *s1;
 	char *s2;
 	char *dest1;
 	char *dest2;
 	
-	s1 = argv[1];
+	s1 = "asdsa";
 	dest1 = strdup(s1);
-	s2 = argv[2];
+	s2 = "asdsa";
 	dest2 = ft_strdup(s2);
 	
 		
 	printf("Orgnal: %s\n", s1);
-    	printf("Duplicated: %s\n", dest1);
-    	printf("Orgnal: %s\n", s2);
-    	printf("FT_Duplicated: %s\n", dest2);
+    printf("Duplicated: %s\n", dest1);
+    printf("Orgnal: %s\n", s2);
+    printf("FT_Duplicated: %s\n", dest2);
     	    	
-    	free(dest1);
-    	free(dest2);
-    	return (0);
-}*/
+    free(dest1);
+    free(dest2);
+    return (0);
+}
+*/

@@ -29,3 +29,13 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	}
 	return (ft_strlen(src));
 }
+/*int main()
+{
+    char s[] = "Hello, Wor!";
+    char d[15];
+    size_t r = ft_strlcpy(d, s, sizeof(d));
+    printf("copied: %s\n", d);
+    printf("length: %zu\n", r);
+    return 0;
+}
+*/
