@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char	*f_strtok(char *str, const char *delim)
+static char	*f_strtok(char *str, const char *delim)
 {
 	static char	*next_token = NULL;
 	char		*token_start;

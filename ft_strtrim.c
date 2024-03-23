@@ -12,32 +12,45 @@
 
 #include "libft.h"
 
+static int	ft_checkset(char c, const char *set)
+{
+	while (*set != '\0')
+	{
+		if (*set == c)
+			return (1);
+		set++;
+	}
+	return (0);
+}
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*a;
-	char	*b;
-	char	*rslt;
+	size_t	start;
+	size_t	end;
+	size_t	len;
+	char	*trimmed;
 
-	rslt = malloc(ft_strlen(s1) + 1);
-	if (rslt == NULL)
+	if (s1 == NULL || set == NULL)
 		return (NULL);
-	a = (char *)s1;
-	b = rslt;
-	while (*a != '\0')
-	{
-		*b = *a;
-		if (*b != *set)
-			b++;
-		a++;
-	}
-	*b = '\0';
-	return (rslt);
+	start = 0;
+	while (s1[start] != '\0' && ft_checkset(s1[start], set) != 0)
+		start++;
+	end = ft_strlen(s1);
+	while (end > start && ft_checkset(s1[end - 1], set) != 0)
+		end--;
+	len = end - start;
+	trimmed = (char *)malloc(len + 1);
+	if (trimmed == NULL)
+		return (NULL);
+	ft_strlcpy(trimmed, s1 + start, len + 1);
+	return (trimmed);
 }
-/*int main(void) {
-    char *str = " a wdf rawd f rawdf rga ";
-    char *a = " ";
-    char *c = ft_strtrim(str, a);
-    printf(":%s", c);
-    free(c);
-    return 0;
+/*int main()
+{
+	char	*str = "a a a a wdf rawd f rawdf rga a a a";
+	char	*a = " a";
+	char	*c = ft_strtrim(str, a);
+	printf(":%s", c);
+	free (c);
+	return (0);
 }*/
