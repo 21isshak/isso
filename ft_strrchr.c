@@ -14,18 +14,18 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	size_t	a;
+	int	a;
 
 	a = 0;
 	while (s[a] != '\0')
+		a++;
+	while (a >= 0)
 	{
 		if (s[a] == (char)c)
 			return ((char *)(&s[a]));
-		a++;
+		a--;
 	}
-	if (c == 0)
-		return ((char *)(&s[a]));
-	return (NULL);
+	return (0);
 }
 /*int main() {
     char s[] = "emrba";

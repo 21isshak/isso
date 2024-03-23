@@ -14,16 +14,13 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	size_t	a;
-
-	a = 0;
-	while (s[a] != '\0')
+	while ((char)c != *s)
 	{
-		if (s[a] == (char)c)
-			return ((char *)(&s[a]));
-		a++;
+		if (!*s)
+			return (0);
+		s++;
 	}
-	return (NULL);
+	return ((char *)s);
 }
 /*int main() {
     char s[] = "merba";

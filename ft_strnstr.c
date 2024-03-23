@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-/*char	*ft_strnstr(const char *big, const char *little, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	a;
 
@@ -29,7 +29,7 @@
 	}
 	return (NULL);
 }
-*/
+/*
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	a;
@@ -49,6 +49,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (NULL);
 }
+*/
 /*int main()
 {
     const char *h = "merhaba hello";
