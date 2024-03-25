@@ -14,13 +14,18 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	while ((char)c != *s)
+	int	a;
+
+	a = 0;
+	while (s[a] != '\0')
 	{
-		if (!*s)
-			return (0);
-		s++;
+		if (s[a] == (unsigned char)c)
+			return ((char *)(s + a));
+		a++;
 	}
-	return ((char *)s);
+	if (s[a] == (unsigned char)c)
+		return ((char *)(s + a));
+	return (0);
 }
 /*int main() {
     char s[] = "merba";

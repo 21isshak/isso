@@ -14,26 +14,19 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t				a;
-	unsigned char		*d;
-	const unsigned char	*s;
+	unsigned char	*d;
+	unsigned char	*s;
 
-	d = (unsigned char *) dest;
-	s = (const unsigned char *) src;
-	a = 0;
-	if (d < s)
+	if (dest == NULL && src == NULL)
+		return (NULL);
+	if (src > dest)
+		dest = ft_memcpy(dest, src, n);
+	else
 	{
-		while (a < n)
-		{
-			d[a] = d[a];
-			a++;
-		}
-	}
-	a = n;
-	while (a > 0)
-	{
-		d[a - 1] = s[a - 1];
-		a--;
+		d = (unsigned char *)dest;
+		s = (unsigned char *)src;
+		while (n--)
+			d[n] = s[n];
 	}
 	return (dest);
 }
