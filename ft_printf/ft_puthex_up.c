@@ -12,12 +12,12 @@
 
 #include "ft_printf.h"
 
-void	ft_putheX(unsigned int num)
+void	ft_puthex_up(unsigned int num)
 {
-	if (num => 16)
+	if (num >= 16)
 	{
-		ft_putheX(num / 16);
-		ft_putheX(num % 16);
+		ft_puthex_up(num / 16);
+		ft_puthex_up(num % 16);
 	}
 	else
 	{

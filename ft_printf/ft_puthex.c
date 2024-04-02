@@ -14,7 +14,7 @@
 
 void	ft_puthex(unsigned int num)
 {
-	if (num => 16)
+	if (num >= 16)
 	{
 		ft_puthex(num / 16);
 		ft_puthex(num % 16);

@@ -1,3 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iskaraag <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/03 01:19:50 by iskaraag          #+#    #+#             */
+/*   Updated: 2024/04/03 01:19:52 by iskaraag         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
+
+//ccc main.c ft_printf.h ft_printf.c ft_putchar.c ft_puthex.c ft_puthex_up.c ft_putnbr.c ft_putpntr.c
 int main()
 {
     char c = 'A';

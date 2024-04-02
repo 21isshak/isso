@@ -14,15 +14,10 @@
 
 void	ft_putpntr(void *ptr)
 {
-	int					size;
-	int					i;
-	int					rem;
-	int					a;
+	struct s_variables	my;
 	unsigned long long	num;
 	unsigned long long	tmp;
-
-	size = 1;
-	char				hex[size];
+	char				*hex;
 
 	num = (unsigned long long)ptr;
 	ft_putchar('0');
@@ -32,29 +27,33 @@ void	ft_putpntr(void *ptr)
 		ft_putchar('0');
 		return ;
 	}
-	size = 0;
+	my.size = 0;
 	tmp = num;
 	while (tmp != 0)
 	{
 		tmp /= 16;
-		size++;
+		my.size++;
 	}
-	i = size - 1;
-	rem = 0;
-	while (i >= 0)
+	hex = (char *)malloc(my.size * sizeof(char));
+	if (hex == NULL)
+		return ;
+	my.i = my.size - 1;
+	my.rem = 0;
+	while (my.i >= 0)
 	{
-		rem = num % 16;
-		if (rem < 10)
-			hex[i] = rem + '0';
+		my.rem = num % 16;
+		if (my.rem < 10)
+			hex[my.i] = my.rem + '0';
 		else
-			hex[i] = rem - 10 + 'a';
+			hex[my.i] = my.rem - 10 + 'a';
 		num /= 16;
-		i--;
+		my.i--;
 	}
-	i = 0;
-	while (i < size)
+	my.i = 0;
+	while (my.i < my.size)
 	{
-		ft_putchar(hex[i]);
-		i++;
+		ft_putchar(hex[my.i]);
+		my.i++;
 	}
+	free(hex);
 }
