@@ -12,12 +12,15 @@
 
 #include "ft_printf.h"
 
-void	ft_puthex_up(unsigned int num)
+int	ft_puthex_up(unsigned int num)
 {
+	int	ahm;
+
+	ahm = 0;
 	if (num >= 16)
 	{
-		ft_puthex_up(num / 16);
-		ft_puthex_up(num % 16);
+		ahm += ft_puthex_up(num / 16);
+		ahm += ft_puthex_up(num % 16);
 	}
 	else
 	{
@@ -25,5 +28,7 @@ void	ft_puthex_up(unsigned int num)
 			ft_putchar(num + '0');
 		else
 			ft_putchar(num - 10 + 'A');
+		ahm++;
 	}
+	return (ahm);
 }

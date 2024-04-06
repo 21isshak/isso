@@ -12,48 +12,28 @@
 
 #include "ft_printf.h"
 
-void	ft_putpntr(void *ptr)
+int	ft_x(unsigned long c)
 {
-	struct s_variables	my;
-	unsigned long long	num;
-	unsigned long long	tmp;
-	char				*hex;
+	int	a;
 
-	num = (unsigned long long)ptr;
-	ft_putchar('0');
-	ft_putchar('x');
-	if (num == 0)
+	a = 0;
+	if (c / 16 != 0)
+		a += ft_x(c / 16);
+	a += ft_puthex(c % 16);
+	return (a);
+}
+
+int	ft_putpntr(void *ptr)
+{
+	int	ahm;
+
+	if (ptr == 0)
 	{
-		ft_putchar('0');
-		return ;
+		ft_putstr("(nil)");
+		return (5);
 	}
-	my.size = 0;
-	tmp = num;
-	while (tmp != 0)
-	{
-		tmp /= 16;
-		my.size++;
-	}
-	hex = (char *)malloc(my.size * sizeof(char));
-	if (hex == NULL)
-		return ;
-	my.i = my.size - 1;
-	my.rem = 0;
-	while (my.i >= 0)
-	{
-		my.rem = num % 16;
-		if (my.rem < 10)
-			hex[my.i] = my.rem + '0';
-		else
-			hex[my.i] = my.rem - 10 + 'a';
-		num /= 16;
-		my.i--;
-	}
-	my.i = 0;
-	while (my.i < my.size)
-	{
-		ft_putchar(hex[my.i]);
-		my.i++;
-	}
-	free(hex);
+	ahm = 2;
+	ft_putstr("0x");
+	ahm += ft_x((unsigned long) ptr);
+	return (ahm);
 }

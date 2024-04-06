@@ -18,21 +18,13 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-void	ft_putchar(char c);
-void	ft_putnbr(int nb);
-void	ft_puthex_up(unsigned int num);
-void	ft_puthex(unsigned int num);
-void	ft_putpntr(void *ptr);
-int		ft_printf(const char *format, ...);
-
-struct s_variables
-{
-	int		size;
-	int		i;
-	int		rem;
-	int		ahm;
-	int		num;
-	char	c;
-};
+int	ft_putchar(char c);
+int	ft_putstr(char *str);
+int	ft_putnbr(int nb);
+int	ft_putnbr_u(unsigned int nb);
+int	ft_puthex_up(unsigned int num);
+int	ft_puthex(unsigned int num);
+int	ft_putpntr(void *ptr);
+int	ft_printf(const char *format, ...);
 
 #endif

@@ -12,72 +12,50 @@
 
 #include "ft_printf.h"
 
+int	ft_format(const char *format, va_list args)
+{
+	int	ahm;
+
+	ahm = 0;
+	if (*format == 'c')
+		ahm += ft_putchar(va_arg(args, int));
+	else if (*format == 's')
+		ahm += ft_putstr(va_arg(args, char *));
+	else if (*format == 'p')
+		ahm += ft_putpntr(va_arg(args, void *));
+	else if (*format == 'd')
+		ahm += ft_putnbr(va_arg(args, int));
+	else if (*format == 'i')
+		ahm += ft_putnbr(va_arg(args, int));
+	else if (*format == 'u')
+		ahm += ft_putnbr_u(va_arg(args, unsigned int));
+	if (*format == 'x')
+		ahm += ft_puthex(va_arg(args, unsigned int));
+	else if (*format == 'X')
+		ahm += ft_puthex_up(va_arg(args, unsigned int));
+	else if (*format == '%')
+		ahm += ft_putchar('%');
+	return (ahm);
+}
+
 int	ft_printf(const char *format, ...)
 {
-	struct s_variables	mine;
-	char				*str;
-	void				*ptr;
-	unsigned int		nm;
-	va_list				args;
+	va_list	args;
+	int		ahm;
 
-	mine.ahm = 0;
+	ahm = 0;
 	va_start(args, format);
 	while (*format != '\0')
 	{
-		if (*format == '%')
+		if (*format != '%')
+			ahm += ft_putchar(*format);
+		else
 		{
 			format++;
-			if (*format == 'c')
-			{
-				mine.c = va_arg(args, int);
-				ft_putchar(mine.c);
-			}
-			else if (*format == 's')
-			{
-				str = va_arg(args, char *);
-				while (*str != '\0')
-				{
-					ft_putchar(*str);
-					str++;
-				}
-			}
-			else if (*format == 'p')
-			{
-				ptr = va_arg(args, void *);
-				ft_putpntr(ptr);
-			}
-			else if (*format == 'd' || *format == 'i')
-			{
-				mine.num = va_arg(args, int);
-				ft_putnbr(mine.num);
-			}
-			else if (*format == 'u')
-			{
-				nm = va_arg(args, unsigned int);
-				ft_putnbr(nm);
-			}
-			else if (*format == 'x')
-			{
-				nm = va_arg(args, unsigned int);
-				ft_puthex(nm);
-			}
-			else if (*format == 'X')
-			{
-				nm = va_arg(args, unsigned int);
-				ft_puthex_up(nm);
-			}
-			else if (*format == '%')
-				ft_putchar('%');
-			else
-			{
-				ft_putchar('%');
-				ft_putchar(*format);
-			}
+			ahm += ft_format(format, args);
 		}
-		else
-			ft_putchar(*format);
 		format++;
 	}
 	va_end(args);
-	return (mine.ahm);
+	return (ahm);
 }
