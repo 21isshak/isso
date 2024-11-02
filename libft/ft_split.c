@@ -182,10 +182,11 @@ char	**ft_split(char const *s, char c)
 	v[i] = NULL;
 	return (free (str), v);
 }*/
-/*int main()
+/*#include <stdio.h>
+int main()
 {
-    char *inp = "hey,42,meraba,ben,ishak,";
-    char delimiter = ',';
+    char *inp = "hey 42,meraba ben ishak, ";
+    char delimiter = ' ';
     char **result = ft_split(inp, delimiter);
     int i;
     int j;

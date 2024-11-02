@@ -12,7 +12,6 @@
 
 #include "ft_printf.h"
 
-// ccc main.c ft_printf.h ft_printf.c ft_putchar.c ft_puthex.c ft_puthex_up.c ft_putnbr.c ft_putpntr.c ft_putstr.c ft_putnbr_u.c
 int	main(void)
 {
 	char			c;
@@ -30,25 +29,25 @@ int	main(void)
 	ptr = &num;
 	age = 24;
 	name = "isacc";
-	ft_printf("dfg%%gre\n");
+	ft_printf("\033[0;32mdfg%%gre\033[0m\n");
 	printf("dfg%%gre\n");
-	ft_printf("myChar : %c\n", c);
+	ft_printf("\033[0;32mmyChar : %c\033[0m\n", c);
 	printf("orgChar: %c\n", c);
-	ft_printf("myString : %s\n", str);
+	ft_printf("\033[0;32mmyString : %s\033[0m\n", str);
 	printf("orgString: %s\n", str);
-	ft_printf("myPointer : %p\n", ptr);
+	ft_printf("\033[0;32mmyPointer : %p\033[0m\n", ptr);
 	printf("orgPointer: %p\n", ptr);
-	ft_printf("myDecimal : %d\n", num);
+	ft_printf("\033[0;32mmyDecimal : %d\033[0m\n", num);
 	printf("orgDecimal: %d\n", num);
-	ft_printf("myUnsigned Decimal : %u\n", unum);
+	ft_printf("\033[0;32mmyUnsigned Decimal : %u\033[0m\n", unum);
 	printf("orgUnsigned Decimal: %u\n", unum);
-	ft_printf("myHexadecimal (lowercase) : %x\n", num);
+	ft_printf("\033[0;32mmyHexadecimal (lowercase) : %x\033[0m\n", num);
 	printf("orgHexadecimal (lowercase): %x\n", num);
-	ft_printf("myHexadecimal (uppercase) : %X\n", num);
+	ft_printf("\033[0;32mmyHexadecimal (uppercase) : %X\033[0m\n", num);
 	printf("orgHexadecimal (uppercase): %X\n", num);
-	ft_printf("myPercentage : %%\n");
+	ft_printf("\033[0;32mmyPercentage : %%\033[0m\n");
 	printf("orgPercentage: %%\n");
-	ft_printf("myMorethenone :  hi I am %d years old and I am %s\n", age, name);
+	ft_printf("\033[0;32mmyMorethenone :  hi I am %d years old and I am %s\033[0m\n", age, name);
 	printf("orgMorethenone:  hi I am %d years old and I am %s\n", age, name);
 	return (0);
 }
